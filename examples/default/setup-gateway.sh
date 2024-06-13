@@ -65,7 +65,10 @@ server {
     }
 
     location /v2/ {
-        proxy_pass http://${endpoint};
+        # proxy_pass http://${endpoint};
+        # https://github.com/kubesre/docker-registry-mirrors
+        # one domain just for docker.io
+        proxy_pass http://${endpoint}/v2/docker.io/;
     }
 }
 EOF

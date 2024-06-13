@@ -60,9 +60,9 @@ server {
     # }
 
     # Read only, Reject all writes !!!!!!!!!!
-    if (\$request_method !~* GET|HEAD) {
-        return 403;
-    }
+    # if (\$request_method !~* GET|HEAD) {
+    #     return 403;
+    # }
 
     location /v2/ {
         # proxy_pass http://${endpoint};
@@ -74,6 +74,26 @@ server {
 
     location /z1note {
         proxy_pass https://192.168.0.20:5443;
+
+        # 保留并传递原始请求中的Authorization头
+        proxy_set_header Authorization $http_authorization;
+        # 其他常用的传递头
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    
+    location /api/ {
+        proxy_pass http://192.168.0.20:5443;
+        
+        # 保留并传递原始请求中的Authorization头
+        proxy_set_header Authorization $http_authorization;
+        # 其他常用的传递头
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
 EOF

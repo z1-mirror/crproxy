@@ -1,4 +1,5 @@
 
 log
 certbot
-nginx
+nginx/*
+!nginx/*.conf.dist

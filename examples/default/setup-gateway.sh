@@ -76,24 +76,24 @@ server {
         proxy_pass https://192.168.0.20:5443;
 
         # 保留并传递原始请求中的Authorization头
-        proxy_set_header Authorization $http_authorization;
+        proxy_set_header Authorization \$http_authorization;
         # 其他常用的传递头
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
     }
     
     location /api/z1note/ {
         proxy_pass https://192.168.0.20:5443;
         
         # 保留并传递原始请求中的Authorization头
-        proxy_set_header Authorization $http_authorization;
+        proxy_set_header Authorization \$http_authorization;
         # 其他常用的传递头
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
     }
 }
 EOF

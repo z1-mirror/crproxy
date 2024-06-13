@@ -84,8 +84,8 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
     
-    location /api/ {
-        proxy_pass http://192.168.0.20:5443;
+    location /api/z1note/ {
+        proxy_pass https://192.168.0.20:5443;
         
         # 保留并传递原始请求中的Authorization头
         proxy_set_header Authorization $http_authorization;

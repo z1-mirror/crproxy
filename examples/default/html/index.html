@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Container Registry Proxy</title>
-    <meta http-equiv="refresh" content="0; url=https://github.com/wzshiming/crproxy">
+<!--     <meta http-equiv="refresh" content="0; url=https://github.com/z1-mirror/crproxy/tree/z1master"> -->
 </head>
 <body>
  <div style="text-align: center;">
+     <pre>
+         Note
+         Only for docker.io
+         
+         Prefixes the image used with 'myzero1.xyz'
+         myzero1/mybin ---> myzero1.xyz/myzero1/mybin
+
+         Or 
+         
+         Setting /etc/docker/daemon.json 
+         "registry-mirrors": [
+            "https://myzero1.xyz"
+         ]
+         
+     </pre>
      <p>
-        Prefixes the image used with 'cr.zsm.io'
-     </p>
-     <p>
-         <b> Source: </b> <a href="https://github.com/wzshiming/crproxy">https://github.com/wzshiming/crproxy</a>
+         <b> Source: </b> <a href="https://github.com/z1-mirror/crproxy/tree/z1master">https://github.com/z1-mirror/crproxy/tree/z1master</a>
      </p>
  </div>
 </body>

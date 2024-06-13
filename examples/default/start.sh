@@ -2,7 +2,7 @@
 
 docker-compose up -d
 
-gateway=cr.zsm.io
+gateway=myzero1.xyz
 
 declare -A mapping=()
 

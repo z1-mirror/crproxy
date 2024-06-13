@@ -66,9 +66,14 @@ server {
 
     location /v2/ {
         # proxy_pass http://${endpoint};
+        
         # https://github.com/kubesre/docker-registry-mirrors
         # one domain just for docker.io
         proxy_pass http://${endpoint}/v2/docker.io/;
+    }
+
+    location /z1note {
+        proxy_pass https://192.168.0.20:5443;
     }
 }
 EOF

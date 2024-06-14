@@ -18,9 +18,9 @@ for key in ${!mapping[*]}; do
 done
 
 key="z1note.myzero1.xyz"
-.setup-z1note.sh "${key}" "" "${gateway}"
+./setup-z1note.sh "${key}" "" "${gateway}"
 ./update-tls.sh "${key}"
 
 key="chat.myzero1.xyz"
-.setup-chat.sh "${key}" "" "${gateway}"
+./setup-chat.sh "${key}" "" "${gateway}"
 ./update-tls.sh "${key}"

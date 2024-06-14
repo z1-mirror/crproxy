@@ -33,13 +33,16 @@ server {
 
     access_log  /var/log/nginx/${domain}.access.log  main;
 
-    location = /v2/ {
-        default_type "application/json; charset=utf-8";
-        return 200 "{}";
-    }
-
-    location ~ ^/v2/(.+)\$ {
-        return 301 https://${gateway}/v2/${origin}/\$1;
+    location = / {
+        proxy_pass https://192.168.0.20:5443;
+        
+        # 保留并传递原始请求中的Authorization头
+        proxy_set_header Authorization \$http_authorization;
+        # 其他常用的传递头
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
     }
 }
 EOF

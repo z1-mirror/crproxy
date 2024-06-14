@@ -33,7 +33,7 @@ server {
 
     access_log  /var/log/nginx/${domain}.access.log  main;
 
-    location = / {
+    location / {
         proxy_pass http://192.168.0.20:7351;
 
         # 保留并传递原始请求中的Authorization头

@@ -16,3 +16,11 @@ for key in ${!mapping[*]}; do
     ./setup-alias.sh "${key}" "${mapping[$key]}" "${gateway}"
     ./update-tls.sh "${key}"
 done
+
+key="z1note.myzero1.xyz"
+.setup-z1note.sh "${key}" "" "${gateway}"
+./update-tls.sh "${key}"
+
+key="chat.myzero1.xyz"
+.setup-chat.sh "${key}" "" "${gateway}"
+./update-tls.sh "${key}"

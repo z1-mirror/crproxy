@@ -31,11 +31,13 @@ server {
     server_name ${domain};
     server_tokens off;
 
+    client_max_body_size 100M;
+
     access_log  /var/log/nginx/${domain}.access.log  main;
 
     location / {
         proxy_pass https://192.168.0.20:5443;
-        
+
         # 保留并传递原始请求中的Authorization头
         proxy_set_header Authorization \$http_authorization;
         # 其他常用的传递头
